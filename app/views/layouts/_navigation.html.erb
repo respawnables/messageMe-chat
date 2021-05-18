@@ -6,10 +6,17 @@
     <a class="item">
       Messages
     </a>
-    <div class="right menu">
-      <div class="item">
-        <div class="ui primary button">Sign Up</div>
+    <% if logged_in? %>
+      <div class="right menu">
+        <div>
+          <a class="ui label">
+            <i class="user icon"></i> <%= current_user.username %>
+          </a>
+        </div>
+        <div class="item">
+          <%= link_to 'Log out', logout_path, class: "ui purple inverted button", method: :delete %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
