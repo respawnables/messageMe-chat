@@ -11,6 +11,33 @@ import 'jquery'
 //= require semantic-ui
 
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+const scroll_bottom = function () {
+    if ($('#messages').length > 0)
+    {
+        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+    }
+}
+
+var submit_message = function () {
+    $('#message-body').on('keydown', function (e) {
+        if (e.keyCode == 13) {
+            e.target.value = ""
+        }
+    });
+}
+
+$(document).on('turbolinks:load', function() {
+    scroll_bottom()
+    submit_message()
+})
+
+
+
+
+
+
